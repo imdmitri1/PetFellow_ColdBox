@@ -1,33 +1,19 @@
-# Advanced Script Template
 
-An advanced template with all the bells and whistles in script format
+## Installation
 
-## License
-Apache License, Version 2.0.
+You would need to have  [CommandBox](http://www.ortussolutions.com/products/commandbox) installed on your machine to run this app.  
 
-## Important Links
-
-Source Code
-- https://github.com/coldbox-templates/advanced-script
-
-## Quick Installation
-
-Each application templates contains a `box.json` so it can leverage [CommandBox](http://www.ortussolutions.com/products/commandbox) for its dependencies.  
-Just go into each template directory and type:
+Navigate to the project folder in CommandBox environment and type:
 
 ```
-box install
+server start
 ```
 
-This will setup all the needed dependencies for each application template.  You can then type:
-
+This will run the application. Then you would need to paste 'sqlite-jdbc-3.14.2.1.jar' file from db folder into specified directory for database to work, here is the path, you can find in your CommandBox environment while server is running:
 ```
-box server start
+ /Users/{'username'}/.CommandBox/server/E222EA50114A5CB34992E598DA1B9D35-petfellow_coldbox/lucee-5.2.7.63/WEB-INF/lucee-web/lib
 ```
-
-And run the application.
-
----
- 
-###THE DAILY BREAD
- > "I am the way, and the truth, and the life; no one comes to the Father, but by me (JESUS)" Jn 14:1-12
+After you add the `jar` file, you will need to restart your server for it to take effect:
+```
+server restart
+```
