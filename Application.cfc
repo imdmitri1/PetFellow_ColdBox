@@ -11,10 +11,20 @@ component{
 	this.setClientCookies = true;
 
 	// Java Integration
-	this.javaSettings = { 
-		loadPaths = [ ".\lib" ], 
-		loadColdFusionClassPath = true, 
-		reloadOnChange= false 
+	this.javaSettings = {
+		loadPaths = [ ".\lib" ],
+		loadColdFusionClassPath = true,
+		reloadOnChange= false
+	};
+
+	this.datasources["petfellow"] = {
+		driver: "other",
+		class: 'org.sqlite.JDBC',
+		connectionString: 'jdbc:sqlite:/#expandPath( "db/petfellow.db" )#',
+		url: 'jdbc:sqlite:/#expandPath( "db/petfellow.db" )#',
+		// optional settings
+		blob:true, // default: false
+		clob:true // default: false
 	};
 
 	// COLDBOX STATIC PROPERTY, DO NOT CHANGE UNLESS THIS IS NOT THE ROOT OF YOUR COLDBOX APP
