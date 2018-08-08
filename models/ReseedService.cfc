@@ -43,3 +43,57 @@ component accessors="true"{
 
 	}
 }
+
+//
+// CREATE TABLE favorite_posts (
+//   id int AUTO_INCREMENT,
+//   post_id int,
+//   user_id int,
+//   created_at datetime(),
+//   updated_at datetime()
+// );
+//
+// CREATE TABLE posts (
+//   id int AUTO_INCREMENT,
+//   description varchar(512),
+//   pic_link varchar(256),
+//   author_id int,
+//   created_at datetime(),
+//   updated_at datetime()
+// );
+//
+// CREATE TABLE comments (
+//   id int AUTO_INCREMENT,
+//   content varchar(512);
+//   post_id int,
+//   author_id int,
+//   created_at datetime(),
+//   updated_at datetime()
+// );
+//
+// CREATE TABLE likes (
+//   id int AUTO_INCREMENT,
+//   count int,
+//   likable_type varchar(16);
+//   likable_id int,
+//   author_id,
+//   created_at datetime(),
+//   updated_at datetime()
+// );
+//
+// CREATE TABLE messages (
+//   id int AUTO_INCREMENT,
+//   content varchar(256),
+//   message_seen boolean,
+//   author_id int,
+//   receiver_id int,
+//   created_at datetime(),
+//   updated_at datetime()
+// );
+//
+// CREATE TABLE follows (
+//   follower_id int,
+//   following_id int,
+//   created_at datetime(),
+//   updated_at datetime()
+// );
