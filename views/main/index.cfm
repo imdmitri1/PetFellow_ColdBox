@@ -241,9 +241,9 @@
 </div>
 </cfoutput>
 
-<cfquery name = "f" datasource = "petfellow">
+<!--- <cfquery name = "f" datasource = "petfellow">
     SELECT * FROM test
 </cfquery>
 <cfscript>
 	WriteDump(f);
-</cfscript>
+</cfscript> --->

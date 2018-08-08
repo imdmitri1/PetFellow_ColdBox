@@ -1,13 +1,17 @@
 ﻿component extends="coldbox.system.EventHandler"{
 
+	property name="reseedService" inject="ReseedService";
+
 	// Default Action
 	function index(event,rc,prc){
 		prc.welcomeMessage = "Welcome to ColdBox!";
 		event.setView("main/index");
 	}
 
-	// Do something
-	function doSomething(event,rc,prc){
+	// Reseed database
+	function reseed(event,rc,prc){
+		reseedService.seed();
+		// add flash notice
 		relocate( "main.index" );
 	}
 
