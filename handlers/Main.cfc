@@ -12,7 +12,7 @@
 	function reseed(event,rc,prc){
 		reseedService.seed();
 		// add flash notice
-		relocate( "main.index" );
+		relocate( "main.allTables" );
 	}
 
 	/************************************** IMPLICIT ACTIONS *********************************************/
