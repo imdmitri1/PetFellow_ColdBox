@@ -1,0 +1,414 @@
+body {
+  background: #eef2f3;
+  font-family: 'Open Sans', sans-serif;
+  background-image: url("../favicon3.png");
+  background-size: 500px 500px;
+  /* background-attachment: fixed; */
+  height: 100%;
+}
+
+.greyColor {
+  color: grey;
+}
+
+.guest {
+  color: #A1887F;
+}
+
+.guest div {
+  color: #00BCD4;
+}
+
+.prosto {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+
+.footer {
+  height: 30px;
+  position: relative;
+  bottom: 0;
+  background-color: #f8f9fa;
+}
+
+.footer span {
+  margin: 0 20px;
+  font-size: 1.2em;
+  font-family: 'Cabin Sketch', cursive;
+
+}
+
+#prosto {
+  font-family: 'Lobster', cursive;
+}
+
+.prosto {
+  font-family: 'Pacifico', cursive;
+
+}
+
+html body div p {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+/* ********************************** */
+
+.auth {
+  margin-top: 20%;
+}
+
+.auth *{
+  text-align: center;
+}
+
+.error-color.disabled {
+  opacity: 1;
+}
+
+/* *************** main page ******************* */
+
+.PF {
+  letter-spacing: 3px;
+  font-size: 1.5em;
+  font-family: 'Cabin Sketch', cursive;
+}
+
+.btn-outline-success {
+  border: none;
+}
+
+.pagination * {
+  margin: 10px;
+  font-size: 1.3em;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 575px) {
+  .pagination * {
+    margin: 8px;
+    font-size: 1.1em;
+    font-weight: normal;
+  }
+}
+
+.date {
+  font-size: 0.5em;
+}
+
+.info {
+  margin: 2%;
+  vertical-align: center;
+}
+
+.like-count {
+  min-width: 35px;
+}
+
+.like-count *:hover {
+  cursor: default;
+  text-decoration: none;
+}
+
+.name * {
+  color: #263238;
+}
+
+.name *:hover {
+  text-decoration: none;
+}
+
+.description * {
+  color: #616161;
+}
+
+.description *:hover {
+  text-decoration: none;
+}
+
+.comments * {
+  color: green;
+}
+
+.img-main {
+  border-radius: 3px;
+  max-height: 180px;
+}
+
+.image-modal {
+  /* height: 200px; */
+}
+
+@media screen and (max-width: 575px) {
+  .img-main {
+    max-height: 100%;
+  }
+  .one-line {
+    margin-top: 10px;
+    min-width: 300px;
+  }
+  .one-line input {
+    width: 250px;
+  }
+  li a.nav-link.pading-right {
+    padding-right: 10px;
+  }
+  p.display-4 {
+    /* padding: 0.5rem 2rem; */
+    font-size: 2.2em !important;
+  }
+}
+
+.caption-color * {
+  color: grey;
+}
+
+.dropdown-menu .fa {
+  margin-right: 10px;
+}
+
+.card {
+  background-color: #f8f9fa;
+}
+/* ************** profile ******************** */
+
+.avatar {
+  height: 150px;
+}
+
+.jumbotron {
+  padding: 0.5rem 2rem;
+  background-color: #f8f9fa;
+  /* font-size: 2.2em; */
+  text-align: center;
+}
+
+ .btn-group-sm * {
+   width: 100px;
+   margin: 0 auto;
+   background-color: white;
+}
+
+/* ******************* index message **************************** */
+
+.message-avatar * {
+  float: right;
+  height: 60px;
+  /* width: 15px; */
+}
+
+/* ****************** message show ***************************** */
+
+.dialog-ul {
+  /* height: auto; */
+  list-style: none;
+  /* padding-left: 0; */
+  padding: 3px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.dialog-ul * {
+  word-break: break-all;
+}
+
+.t-left {
+  text-align: left;
+  clear: right;
+  overflow-x: auto;
+}
+
+.li-item {
+  width: 100%;
+}
+
+.dialog-names {
+  color: #00B388;
+  font-size: 0.6em;
+}
+
+.you {
+  margin-left: 5px;
+  float: left;
+  line-height: normal;
+}
+
+.u-input {
+  float: left;
+  min-height: 32px;
+  min-width: 32px;
+  margin-bottom: 10px;
+}
+
+.t-right {
+  text-align: right;
+  float: right;
+  clear: left;
+  /* overflow-x: auto; */
+  /*right: 0;*/
+}
+
+.r-input {
+  float: right;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+.mes-column {
+  border: 1px solid #BDBDBD;
+  border-top: 0;
+  border-bottom: 0;
+  /* word-wrap: break-word; */
+}
+
+.textarea-border {
+  border: 1px solid #BDBDBD;
+  margin-bottom: 1%;
+  margin-top: 5%;
+}
+
+/********* adding speech bubbles ******************/
+
+.u-input, .r-input, .border-right, .border-left {
+  position: relative;
+
+  max-width: 80%;
+  width: auto;
+  color: #005035;
+  border: 0.1em solid #BDBDBD;
+  border-width: thin;
+  word-wrap: normal;
+  border-radius: 7px;
+  padding: 3px 6px;
+  margin: 3px;
+}
+
+.border-right:before {
+  content: ' ';
+  position: absolute;
+  right: -8px;
+  top: -1px;
+  border: 7px solid;
+  border-color: #BDBDBD transparent transparent transparent;
+}
+.border-right:after{
+  content: ' ';
+  position: absolute;
+  overflow:hidden;
+  top: 0px;
+  bottom: auto;
+  border: 6px solid;
+  border-color: #eef2f3 transparent transparent transparent;
+}
+
+.border-left:before {
+  content: ' ';
+  position: absolute;
+  left: -8px;
+  top: -1px;
+  border: 7px solid;
+  border-color: #BDBDBD transparent transparent transparent;
+}
+.border-left:after{
+  content: ' ';
+  position: absolute;
+  left: -6px;
+  overflow:hidden;
+  top: 0px;
+  bottom: auto;
+  border: 6px solid;
+  border-color: #eef2f3 transparent transparent transparent;
+}
+
+.u-input, .r-input {
+  border: 1px solid #BDBDBD !important;
+}
+
+/******************* modal image *****************************/
+
+.myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Moda (background) */
+.moda {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Moda Content (image) */
+.moda-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Moda Image */
+.caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.moda-content, .caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .moda-content {
+        width: 100%;
+    }
+}
+
+/* *********************************************** */
