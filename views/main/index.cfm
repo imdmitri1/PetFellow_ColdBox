@@ -1,17 +1,33 @@
 
-<cfquery name = "b">
-    SELECT DISTINCT p.id, p.pic_link, p.description, p.author_id, u.username, c.content as comment
+<cfquery name = "allPosts">
+    SELECT p.id, p.pictureLink, p.description, p.author_id, u.username, c.content as comment, pl.totalLikes, pl2.liked, fl.favorited
     FROM Posts p
     INNER JOIN Users u ON p.author_id = u.id
     LEFT OUTER JOIN (
       SELECT c.post_id, c.content FROM Comments c GROUP BY c.post_id
     ) c ON c.post_id = p.id
+    LEFT OUTER JOIN (
+        SELECT SUM(pl.value) as totalLikes, pl.post_id FROM PostLikes pl GROUP BY pl.post_id
+    ) pl ON pl.post_id = p.id
+    LEFT OUTER JOIN (
+        SELECT pl2.value as liked, pl2.post_id FROM PostLikes pl2 WHERE pl2.author_id = 1 GROUP BY pl2.post_id --current_user_id
+    ) pl2 ON pl2.post_id = p.id
+    LEFT OUTER JOIN (
+        SELECT fl.id as favorited, fl.post_id FROM FavoritePosts fl WHERE fl.user_id = 1 GROUP BY fl.post_id --current_user_id
+    ) fl ON fl.post_id = p.id
     ORDER BY p.id
 </cfquery>
-<cfdump var='#b#'>
+<!--- <cfdump var='#allPosts#'> --->
 
-  <!--- favorite
-  likes --->
+<cfset var queryArray=[] >
+<!--- for ( row in allPosts ){
+	queryArray.append( row );
+} --->
+<cfloop from="1" to="#allPosts.recordcount#" index="rowNumber">
+	 <cfset queryArray.append( QueryGetRow( allPosts, rowNumber ) )>
+</cfloop>
+
+<!--- ******************************************************************** --->
 
 <cfoutput>
   <div class="main-cont">
@@ -23,20 +39,13 @@
     </div>
 
     <div class="row">
-      <!--- <% @posts.each do |post| %> --->
-        <cfloop query = "b">
-          #b.pic_link#
-        </cfloop>
+        <cfloop array = "#queryArray#" item="post">
         <div class="col-sm-6 col-md-4 col-lg-3">
 
           <div class="card border-info mb-3">
 
               <div class="image-modal">
-                <!--- <% if post.pic_link %> --->
-                  <!--- <img src="<%=post.pic_link%> " alt="<%=post.pic_link%>" class="img-fluid myImg mx-auto d-block img-main"> --->
-                <!--- <% else %> --->
-                  <!--- <img src="<%=post.image_url%> " alt="<%=post.image_url%>" class="img-fluid myImg mx-auto d-block img-main"> --->
-                <!--- <% end %> --->
+                  <img src="https:\\#post.pictureLink#" alt="#post.pictureLink#" class="img-fluid myImg mx-auto d-block img-main">
                 <div class="moda myModa">
                   <span class="close">&times;</span>
                   <img src="" class="moda-content img01" >
@@ -46,65 +55,65 @@
 
               <div class="row">
 
-                <div class="col d-flex justify-content-center  px-0 ">
-                  <!--- <% if favorited?(post) %> --->
+                <div class="col d-flex justify-content-center px-0 ">
+                  <cfif post.favorited NEQ "">
                     <form action="/favorite" method="Post">
-                      <!--- <input type="hidden" name="post_id" value="<%=post.id%>"> --->
+                      <input type="hidden" name="post_id" value="#post.id#">
                       <button type="submit" class="btn btn-outline-success fs"><i class="fa fa-star" aria-hidden="true"></i></i></button>
                     </form>
-                  <!--- <% else %> --->
+                  <cfelse>
                     <form action="/favorite" method="Post">
-                      <!--- <input type="hidden" name="post_id" value="<%=post.id%>"> --->
+                      <input type="hidden" name="post_id" value="#post.id#">
                       <button type="submit" class="btn btn-outline-success fso"><i class="fa fa-star-o" aria-hidden="true"></i></button>
                     </form>
-                  <!--- <% end %> --->
+                  </cfif>
                 </div>
 
                 <div class="col d-flex justify-content-center  px-0">
-                    <!--- <span class="like-count d-flex align-items-center mx-auto"><%= post.likes.total_count %></span> --->
+                    <span class="like-count d-flex align-items-center mx-auto">#post.totalLikes#</span>
                 </div>
 
                 <div class="col d-flex justify-content-center  px-0 ">
-                  <!--- <% if liked?(post) %> --->
-                    <!--- <form action="/like/Post/<%=post.id%>" method="post"> --->
+                  <cfif post.liked EQ 1>
+                    <form action="/like/Post/#post.id#" method="post">
                       <button type="submit" class="btn btn-outline-success fh"><i class="fa fa-heart" aria-hidden="true"></i></button>
                     </form>
-                  <!--- <% else %> --->
-                    <!--- <form action="/like/Post/<%=post.id%>" method="post"> --->
+                  <cfelse>
+                    <form action="/like/Post/#post.id#" method="post">
                       <button type="submit" class="btn btn-outline-success fho"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
                     </form>
-                  <!--- <% end %> --->
+                  </cfif>
                 </div>
 
               </div>
 
               <div class="info">
                 <span class="name">
-                  <!--- <a href="/users/<%=post.author.id%>"> --->
-                    <!--- <%=post.author.username%>: --->
+                  <a href="/users/#post.author_id#">
+                    #post.username#:
                   </a>
                 </span>
 
                 <span class="description">
-                  <!--- <a href="/posts/<%=post.id%>"> --->
-                      <!--- <% if post.description && post.description.length > 50 %> --->
-                        <!--- <%=post.description[0..50]%>... --->
-                      <!--- <% else %> --->
-                        <!--- <%=post.description%> --->
-                      <!--- <% end %> --->
+                  <a href="/posts/#post.id#">
+                    <cfif len(post.description) GT 50>
+                        #left(post.description,50)#...
+                    <cfelse>
+                        #post.description#
+                    </cfif>
                   </a>
                 </span>
 
                 <div class="float-right comments">
-                  <!--- <% if post.comments.any? %> --->
-                    <!--- <a href="/posts/<%=post.id%>"> --->
+                  <cfif isDefined(post.comment)>
+                    <a href="/posts/#post.id#">
                       <span><i class="fa fa-comments" aria-hidden="true"></i></span>
                     </a>
-                  <!--- <% else %> --->
-                      <!--- <a href="/posts/<%=post.id%>"> --->
+                  <cfelse>
+                      <a href="/posts/#post.id#">
                         <span><i class="fa fa-comments-o" aria-hidden="true"></i></span>
                       </a>
-                  <!--- <% end %> --->
+                  </cfif>
                 </div>
 
               </div>
@@ -112,7 +121,7 @@
           </div>
 
         </div>
-      <!--- <% end %> --->
+      </cfloop>
     </div>
 
     <nav aria-label="Search results pages">
