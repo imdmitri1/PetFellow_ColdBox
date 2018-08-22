@@ -1,3 +1,4 @@
+<cfoutput>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light p-1 px-2 mb-3 rounded border">
 
         <a class="navbar-brand my-0 py-0 h1" href="/"><span class="PF"><i class="fa fa-paw paw" aria-hidden="true"></i> PetFellow</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="##navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -56,7 +57,7 @@
               <!--- <cfif logged_in?> --->
 
                 <li class="nav-item dropdown d-flex justify-content-end">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="##" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Profile
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -108,3 +109,4 @@
 
 </body>
 </html>
+</cfoutput>

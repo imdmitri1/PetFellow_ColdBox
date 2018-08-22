@@ -105,7 +105,7 @@
                 </span>
 
                 <div class="float-right comments">
-                  <cfif isDefined(post.comment)>
+                  <cfif post.comment NEQ "">
                     <a href="/posts/#post.id#">
                       <span><i class="fa fa-comments" aria-hidden="true"></i></span>
                     </a>
