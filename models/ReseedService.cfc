@@ -54,7 +54,7 @@ component accessors="true"{
 				CREATE TABLE Posts (
 					id INTEGER PRIMARY KEY,
 					description VARCHAR(512),
-					pic_link VARCHAR(256) NOT NULL,
+					pictureLink VARCHAR(256) NOT NULL,
 					author_id INT NOT NULL,
 					created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 					updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -64,7 +64,7 @@ component accessors="true"{
 			);
 
 			queryExecute("
-				INSERT INTO Posts (description, pic_link, author_id)
+				INSERT INTO Posts (description, pictureLink, author_id)
 				VALUES
 					('Use the digital THX port, then you can quantify the virtual system!' ,'images.unsplash.com/photo-1456081445129-830eb8d4bfc6?auto=format&fit=crop&w=1358&q=80',#randRange( 1, 10, "SHA1PRNG" )#),
 					('bypassing the array won''t do anything, we need to calculate the primary AI feed!','images.unsplash.com/photo-1467184576221-d5d206ab2707?auto=format&fit=crop&w=1350&q=80',#randRange( 1, 10, "SHA1PRNG" )#),
