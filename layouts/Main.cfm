@@ -8,10 +8,10 @@
   <meta name="keywords" content="pictures,photo,pets,fellow,cats,dogs,cute">
   <meta name="author" content="imdmitri1">
   <!--- <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW"> --->
-  <link rel="shortcut icon" href="includes/images/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="includes/css/normalize.css">
-  <link rel="stylesheet" href="includes/css/bootstrap.min.css">
-  <link rel="stylesheet" href="includes/css/application.css">
+  <link rel="shortcut icon" href="/includes/images/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="/includes/css/normalize.css">
+  <link rel="stylesheet" href="/includes/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/includes/css/application.css">
 	<!--- <base href="#event.getHTMLBaseURL()#" /> --->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Open+Sans" rel="stylesheet">
@@ -23,7 +23,7 @@
   <!--- <meta property="og:url" content="https://petfellow.herokuapp.com/" /> --->
   <meta property="og:description" content="PetFellow - social network for pet lovers!" />
   <meta property="og:site_name" content="PetFellow" />
-  <script src="includes/js/cookies_min.js"></script>
+  <script src="/includes/js/cookies_min.js"></script>
   <!--- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113297884-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -104,8 +104,8 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-  <script src="includes/js/bootstrap.bundle.min.js"></script>
-  <script src="includes/js/application.js"></script>
+  <script src="/includes/js/bootstrap.bundle.min.js"></script>
+  <script src="/includes/js/application.js"></script>
 
 </body>
 </html>

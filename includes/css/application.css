@@ -1,7 +1,7 @@
 body {
   background: #eef2f3;
   font-family: 'Open Sans', sans-serif;
-  background-image: url("../favicon3.png");
+  background-image: url("/includes/images/background3.png");
   background-size: 500px 500px;
   /* background-attachment: fixed; */
   height: 100%;
