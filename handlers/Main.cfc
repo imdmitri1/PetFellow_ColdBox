@@ -1,10 +1,11 @@
 ﻿component extends="coldbox.system.EventHandler"{
 
 	property name="reseedService" inject="ReseedService";
+	property name="mainService" inject="MainService";
 
 	// Default Action
 	function index(event,rc,prc){
-		prc.welcomeMessage = "Welcome to ColdBox!";
+		prc.allPosts = mainService.index();
 		event.setView("main/index");
 	}
 
