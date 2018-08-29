@@ -3,6 +3,9 @@
 */
 component{
 
+	property name="postService" inject="PostService";
+	property name="commentService" inject="CommentService";
+
 	// OPTIONAL HANDLER PROPERTIES
 	this.prehandler_only 	= "";
 	this.prehandler_except 	= "";
@@ -35,6 +38,10 @@ component{
 	* show
 	*/
 	function show( event, rc, prc ){
+		// prc.post = postService(rc.post_id);
+		// prc.comment = commentService.show(rc.post_id);
+		prc.comments = commentService.show(1); 
+		prc.post = postService.show(1);
 		event.setView( "posts/show" );
 	}
 

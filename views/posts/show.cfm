@@ -1,49 +1,6 @@
-
-<cfquery name = "post">
-    SELECT p.*, u.username, pl.totalLikes, pl2.liked, fl.favorited
-    FROM Posts p
-    INNER JOIN Users u ON p.author_id = u.id
-    LEFT OUTER JOIN (
-        SELECT SUM(pl.value) as totalLikes, pl.post_id FROM PostLikes pl GROUP BY pl.post_id
-    ) pl ON pl.post_id = p.id
-    LEFT OUTER JOIN (
-        SELECT pl2.value as liked, pl2.post_id FROM PostLikes pl2 WHERE pl2.author_id = 1 GROUP BY pl2.post_id --current_user_id
-    ) pl2 ON pl2.post_id = p.id
-    LEFT OUTER JOIN (
-        SELECT fl.id as favorited, fl.post_id FROM FavoritePosts fl WHERE fl.user_id = 1 GROUP BY fl.post_id --current_user_id
-    ) fl ON fl.post_id = p.id
-    WHERE p.id = 1 -- post_id
-</cfquery>
-
-<cfquery name = "comments">
-    SELECT c.*, cl.totalLikes, cl2.liked, u.username
-    FROM comments c
-    INNER JOIN Users u ON c.author_id = u.id
-    LEFT OUTER JOIN (
-        SELECT SUM(cl.value) as totalLikes, cl.comment_id FROM CommentLikes cl GROUP BY cl.comment_id
-    ) cl ON cl.comment_id = c.id
-    LEFT OUTER JOIN (
-        SELECT cl2.value as liked, cl2.comment_id FROM CommentLikes cl2 WHERE cl2.author_id = 1 GROUP BY cl2.comment_id --current_user_id
-    ) cl2 ON cl2.comment_id = c.id
-    WHERE c.post_id = 1 -- post_id
-    ORDER BY 'created_at'
-</cfquery>
-
-<!--- <cfdump var='#Post#'>
-<cfdump var='#comments#'> --->
-
-<cfset var commentsArray=[] >
-<!--- for ( row in Post ){
-	queryArray.append( row );
-} --->
-<cfloop from="1" to="#comments.recordcount#" index="rowNumber">
-	 <cfset commentsArray.append( QueryGetRow( Comments, rowNumber ) )>
-</cfloop>
-
-<!--- ******************************************************************** --->
-
 <!--- <%= erb :'partials/_errors', layout: false, locals: {errors: @errors} %> --->
 <cfoutput>
+<cfset post = prc.post>
 <div class="row">
   <div class="col-sm-12 col-md-2 col-lg-2"></div>
   <div class="col-sm-12 col-md-8 col-lg-8">
@@ -128,11 +85,11 @@
 <div class="row">
   <div class="col-sm-12 col-md-2 col-lg-2"></div>
   <div class="col-sm-12 col-md-8 col-lg-8">
-    <cfif comments.recordcount GT 0>
+    <cfif prc.comments.len() GT 0>
 
       <h3 class="text-center">Comments:</h3>
         <ul class="list-group">
-          <cfloop array="#commentsArray#" index="comment">
+          <cfloop array="#prc.comments#" index="comment">
           <li class="list-group-item">
             <div class="row">
 
