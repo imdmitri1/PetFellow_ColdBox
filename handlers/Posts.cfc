@@ -14,7 +14,9 @@ component{
 	this.aroundHandler_only = "";
 	this.aroundHandler_except = "";
 	// REST Allowed HTTP Methods Ex: this.allowedMethods = {delete='POST,DELETE',index='GET'}
-	this.allowedMethods = {};
+	this.allowedMethods = {
+		"show" : "GET"
+	};
 
 	/**
 	IMPLICIT FUNCTIONS: Uncomment to use
@@ -40,7 +42,7 @@ component{
 	function show( event, rc, prc ){
 		// prc.post = postService(rc.post_id);
 		// prc.comment = commentService.show(rc.post_id);
-		prc.comments = commentService.show(1); 
+		prc.comments = commentService.show(1);
 		prc.post = postService.show(1);
 		event.setView( "posts/show" );
 	}
